@@ -1,15 +1,15 @@
 import MySQLdb
 import tweepy
 from random import choice
+from config import *
 
 class DAL:
     def __init__(self):
         self.db = MySQLdb.connect(
-            host='localhost',
-            user='root',
-            # FIX THIS SHIT
-            passwd='cheetos',
-            db='tweetexchange',
+            host=MYSQL_HOST,
+            user=MYSQL_USER,
+            passwd=MYSQL_PASS,
+            db=MYSQL_DB,
             )
 
     def get_random_entry(self):
@@ -32,8 +32,7 @@ class DAL:
 
     def remove_entry(self, id):
         cursor = self.db.cursor()
-        # FIX THIS SHIT
-        cursor.execute('DELETE FROM tweets WHERE id='+str(id))
+        cursor.execute('DELETE FROM tweets WHERE id=%s',(str(id),))
         self.db.commit()
         return
 
