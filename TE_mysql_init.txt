@@ -1,0 +1,14 @@
+create database tweetexchange;
+use tweetexchange;
+
+create table tweets (
+id int not null auto_increment primary key,
+user varchar(20),
+tweet varchar(140),
+tweet_id varchar(20));
+
+create table tweets_ro (
+id int not null auto_increment primary key,
+user varchar(20),
+tweet varchar(140),
+tweet_id varchar(20));
