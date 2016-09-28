@@ -36,7 +36,7 @@ class DAL:
         self.db.commit()
         return
 
-# MOVE THIS TO NEW FILE
+# TODO: MOVE THIS INTO NEW FILE?
 class Leestner(tweepy.StreamListener):
     def __init__(self, callback=None):
         tweepy.StreamListener.__init__(self)

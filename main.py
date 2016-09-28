@@ -1,16 +1,20 @@
 from DAL import DAL, Leestner
+# TODO: MOVE CREDENTIALS INTO CONFIG
 from credentials import *
 
 import tweepy
 import time
 import re
 
+from config import TWITTER_HANDLE
+
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
 
 dal = DAL()
-te_handle_re = re.compile(re.escape('@Tweet_Exchanger'), re.IGNORECASE)
+te_handle_re = re.compile(re.escape(TWITTER_HANDLE), re.IGNORECASE)
+
 def handle_tweet(status):
 	if status.text[0:3] != "RT ":
 		tweeter = status.user.screen_name
