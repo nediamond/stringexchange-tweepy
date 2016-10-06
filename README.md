@@ -11,4 +11,6 @@ It listens for tweets which it is mentioned in, and replies with another random 
 
 (cd /.../stringexchange-tweepy)
 
+Put MySQL information into config.py
+
 python main.py
